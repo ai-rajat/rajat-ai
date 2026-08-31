@@ -1,16 +1,22 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function DesktopHome() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalCurrency, setModalCurrency] = useState('USD');
+  const [countryCode, setCountryCode] = useState('+91');
+  const [mobileNumber, setMobileNumber] = useState('');
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white flex flex-col">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white flex flex-col relative">
       {/* DESKTOP NAVBAR */}
       <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full bg-white/85 backdrop-blur-xl border-b border-slate-200/50 shadow-sm">
-        <div className="text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-2.5">
+        <Link href="/" className="text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-2.5">
           <span className="w-3.5 h-3.5 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.6)]"></span>
           <span>RAJAT<span className="text-blue-600"> | TECH</span></span>
-        </div>
+        </Link>
         
         <div className="flex gap-10 text-sm font-bold tracking-tight text-slate-500">
           <Link href="/services" className="relative group hover:text-slate-900 transition-colors">
@@ -31,9 +37,12 @@ export default function DesktopHome() {
           </Link>
         </div>
         
-        <a href="#contact" className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider bg-slate-900 hover:bg-blue-600 text-white rounded-full transition-all shadow-lg">
+        <button 
+          onClick={() => setIsModalOpen(true)}
+          className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider bg-slate-900 hover:bg-blue-600 text-white rounded-full transition-all shadow-lg cursor-pointer"
+        >
           Work With Us
-        </a>
+        </button>
       </nav>
 
       {/* HERO SECTION */}
@@ -53,9 +62,12 @@ export default function DesktopHome() {
           <Link href="/projects" className="px-8 py-3.5 text-sm font-bold bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all shadow-md">
             View Our Work
           </Link>
-          <a href="#contact" className="px-8 py-3.5 text-sm font-bold bg-white border-2 border-slate-200 text-slate-700 rounded-full hover:bg-slate-50 transition-all">
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="px-8 py-3.5 text-sm font-bold bg-white border-2 border-slate-200 text-slate-700 rounded-full hover:bg-slate-50 transition-all cursor-pointer shadow-sm"
+          >
             Start a Project
-          </a>
+          </button>
         </div>
       </main>
 
@@ -107,8 +119,99 @@ export default function DesktopHome() {
         </div>
       </section>
 
+      {/* POPUP MODAL FOR START A PROJECT */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+          <div className="bg-slate-900 border border-slate-800 p-8 rounded-[2.5rem] max-w-xl w-full shadow-2xl relative text-white max-h-[90vh] overflow-y-auto">
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-lg transition-colors cursor-pointer"
+            >
+              ✕
+            </button>
+
+            <div className="mb-6">
+              <span className="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold rounded-full uppercase tracking-wider">
+                Direct Inquiry
+              </span>
+              <h2 className="text-2xl font-black mt-3 text-white">Start Your Project</h2>
+              <p className="text-slate-400 text-sm mt-1">Fill out the details below to initiate communication with our engineering team.</p>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" className="space-y-4">
+              <input type="hidden" name="access_key" value="414e3e90-fece-49f0-b749-9bb79279af21" />
+              <input type="hidden" name="subject" value="New Project Inquiry from Homepage" />
+              <input type="hidden" name="currency_preference" value={modalCurrency} />
+              <input type="hidden" name="full_mobile_number" value={`${countryCode} ${mobileNumber}`} />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Full Name</label>
+                  <input type="text" name="name" required className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm" placeholder="John Doe" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Email Address</label>
+                  <input type="email" name="email" required className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm" placeholder="john@company.com" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Mobile Number</label>
+                  <div className="flex gap-2">
+                    <select 
+                      value={countryCode} 
+                      onChange={(e) => setCountryCode(e.target.value)}
+                      className="bg-slate-800 border border-slate-700 rounded-xl px-2 py-3 text-white font-bold text-xs focus:outline-none max-w-[110px]"
+                    >
+                      <option value="+91" className="bg-slate-900">+91 (India)</option>
+                      <option value="+1" className="bg-slate-900">+1 (USA/Canada)</option>
+                      <option value="+44" className="bg-slate-900">+44 (UK)</option>
+                      <option value="+971" className="bg-slate-900">+971 (UAE)</option>
+                      <option value="+61" className="bg-slate-900">+61 (Australia)</option>
+                    </select>
+                    <input 
+                      type="tel" 
+                      name="phone_number" 
+                      value={mobileNumber}
+                      onChange={(e) => setMobileNumber(e.target.value)}
+                      required 
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none" 
+                      placeholder="9876543210" 
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Expected Timeline</label>
+                  <select name="timeline" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none cursor-pointer">
+                    <option value="Urgent (ASAP)" className="bg-slate-900">Urgent (ASAP)</option>
+                    <option value="1-2 Weeks" className="bg-slate-900">1-2 Weeks</option>
+                    <option value="1 Month" className="bg-slate-900">1 Month</option>
+                    <option value="Flexible" className="bg-slate-900">Flexible</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Project Scope & Requirements</label>
+                <textarea name="message" rows={3} required className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm resize-none" placeholder="Describe your features, backend needs, or specific scope..."></textarea>
+              </div>
+
+              <button type="submit" className="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/30 cursor-pointer mt-2">
+                Submit Inquiry
+              </button>
+              
+              <p className="text-center text-slate-400 text-xs font-mono pt-1">
+                ⚡ Usually replies in 24 hours
+              </p>
+            </form>
+          </div>
+        </div>
+      )}
+
       <footer className="bg-slate-950 text-slate-500 py-6 text-center text-xs font-mono">
-        <p>© {new Date().getFullYear()} RAJAT|TECH. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} RAJAT.AI. All rights reserved.</p>
       </footer>
     </div>
   );
