@@ -75,8 +75,6 @@ export default function MobilePricing() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col relative selection:bg-blue-600 selection:text-white">
-
-      {/* MOBILE NAVBAR */}
       <nav className="sticky top-0 z-50 flex items-center justify-between px-4 py-3.5 w-full bg-slate-50/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
         <Link href="/" className="text-base font-black tracking-tight text-slate-900 flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.7)]" />
@@ -93,7 +91,6 @@ export default function MobilePricing() {
         </button>
       </nav>
 
-      {/* PREMIUM FULL-SCREEN OVERLAY MENU */}
       {isOpen && (
         <div className="fixed inset-0 top-[57px] bg-slate-900 text-white z-40 px-6 py-8 flex flex-col justify-between overflow-y-auto animate-fadeIn">
           <div className="flex flex-col gap-6">
@@ -102,49 +99,22 @@ export default function MobilePricing() {
                 Quick Navigation
               </p>
               <div className="flex flex-col gap-1">
-                <Link
-                  href="/services"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100"
-                >
-                  <span>⚡ Services</span>
-                  <span className="text-blue-500">&rarr;</span>
+                <Link href="/services" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
+                  <span>⚡ Services</span><span className="text-blue-500">&rarr;</span>
                 </Link>
-
-                <Link
-                  href="/projects"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100"
-                >
-                  <span>🚀 Work / Projects</span>
-                  <span className="text-blue-500">&rarr;</span>
+                <Link href="/projects" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
+                  <span>🚀 Work / Projects</span><span className="text-blue-500">&rarr;</span>
                 </Link>
-
-                <Link
-                  href="/team"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100"
-                >
-                  <span>👥 Leadership</span>
-                  <span className="text-blue-500">&rarr;</span>
+                <Link href="/team" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
+                  <span>👥 Leadership</span><span className="text-blue-500">&rarr;</span>
                 </Link>
-
-                <Link
-                  href="/pricing"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-blue-400"
-                >
-                  <span>💎 Pricing</span>
-                  <span>&rarr;</span>
+                <Link href="/pricing" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-blue-400">
+                  <span>💎 Pricing</span><span>&rarr;</span>
                 </Link>
               </div>
             </div>
 
-            <Link
-              href="/#contact"
-              onClick={() => setIsOpen(false)}
-              className="w-full text-center py-4 text-xs font-bold uppercase tracking-wider bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-600/30"
-            >
+            <Link href="/#contact" onClick={() => setIsOpen(false)} className="w-full text-center py-4 text-xs font-bold uppercase tracking-wider bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-600/30">
               Let's Talk
             </Link>
           </div>
@@ -155,7 +125,6 @@ export default function MobilePricing() {
         </div>
       )}
 
-      {/* MOBILE PRICING CONTENT */}
       <main className="flex-grow px-5 py-12">
         <div className="text-center mb-10 max-w-sm mx-auto">
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 text-[10px] font-bold tracking-wider text-blue-700 bg-blue-50 rounded-full">
@@ -170,8 +139,6 @@ export default function MobilePricing() {
         </div>
 
         <div className="flex flex-col gap-6 max-w-sm mx-auto">
-          
-          {/* Tier 1 */}
           <div className="bg-white text-slate-900 p-8 rounded-[2rem] border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
               <h3 className="text-xl font-black mb-1">Core Foundation</h3>
@@ -180,10 +147,7 @@ export default function MobilePricing() {
                 <span className="text-3xl font-black">Custom</span>
                 <span className="text-slate-400 text-xs font-medium ml-1.5">/ project</span>
               </div>
-              <button 
-                onClick={() => handleOpenModal('Core Foundation')}
-                className="w-full py-3 text-center text-xs font-bold bg-slate-50 text-slate-900 border border-slate-200 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all mb-6 shadow-sm"
-              >
+              <button onClick={() => handleOpenModal('Core Foundation')} className="w-full py-3 text-center text-xs font-bold bg-slate-50 text-slate-900 border border-slate-200 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all mb-6 shadow-sm">
                 Request Quote
               </button>
             </div>
@@ -195,7 +159,6 @@ export default function MobilePricing() {
             </ul>
           </div>
 
-          {/* Tier 2 */}
           <div className="bg-white text-slate-900 p-8 rounded-[2.5rem] border border-slate-200 shadow-md flex flex-col justify-between relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow">
               Most Popular
@@ -207,10 +170,7 @@ export default function MobilePricing() {
                 <span className="text-3xl font-black">Custom</span>
                 <span className="text-slate-400 text-xs font-medium ml-1.5">/ project</span>
               </div>
-              <button 
-                onClick={() => handleOpenModal('Enterprise Scale')}
-                className="w-full py-3 text-center text-xs font-bold bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all mb-6 shadow-md"
-              >
+              <button onClick={() => handleOpenModal('Enterprise Scale')} className="w-full py-3 text-center text-xs font-bold bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all mb-6 shadow-md">
                 Initiate Project
               </button>
             </div>
@@ -222,7 +182,6 @@ export default function MobilePricing() {
             </ul>
           </div>
 
-          {/* Tier 3 */}
           <div className="bg-white text-slate-900 p-8 rounded-[2rem] border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>
               <h3 className="text-xl font-black mb-1">Dedicated Ops</h3>
@@ -231,10 +190,7 @@ export default function MobilePricing() {
                 <span className="text-3xl font-black">Retainer</span>
                 <span className="text-slate-400 text-xs font-medium ml-1.5">/ monthly</span>
               </div>
-              <button 
-                onClick={() => handleOpenModal('Dedicated Ops')}
-                className="w-full py-3 text-center text-xs font-bold bg-slate-50 text-slate-900 border border-slate-200 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all mb-6 shadow-sm"
-              >
+              <button onClick={() => handleOpenModal('Dedicated Ops')} className="w-full py-3 text-center text-xs font-bold bg-slate-50 text-slate-900 border border-slate-200 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all mb-6 shadow-sm">
                 Partner With Us
               </button>
             </div>
@@ -245,19 +201,13 @@ export default function MobilePricing() {
               <li className="flex items-center gap-2.5"><span className="text-blue-500">✓</span> Priority 24/7 Support Channel</li>
             </ul>
           </div>
-
         </div>
       </main>
 
-      {/* MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-[2rem] max-w-md w-full shadow-2xl relative text-white max-h-[90vh] overflow-y-auto">
-            
-            <button 
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm"
-            >
+            <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm">
               ✕
             </button>
 
@@ -295,7 +245,7 @@ export default function MobilePricing() {
                     className="bg-slate-800 border border-slate-700 rounded-xl px-1.5 py-2.5 text-white font-bold text-[10px] focus:outline-none max-w-[95px]"
                   >
                     {countryCodes.map((item, idx) => (
-                      <option key={idx} value={item.code}>{item.code} ({item.name})</option>
+                      <option key={idx} value={item.code} className="bg-slate-900 text-white">{item.code} ({item.name})</option>
                     ))}
                   </select>
                   <input 
@@ -313,10 +263,10 @@ export default function MobilePricing() {
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Expected Timeline</label>
                 <select name="timeline" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none">
-                  <option value="Urgent (ASAP)">Urgent (ASAP)</option>
-                  <option value="1-2 Weeks">1-2 Weeks</option>
-                  <option value="1 Month">1 Month</option>
-                  <option value="Flexible">Flexible</option>
+                  <option value="Urgent (ASAP)" className="bg-slate-900">Urgent (ASAP)</option>
+                  <option value="1-2 Weeks" className="bg-slate-900">1-2 Weeks</option>
+                  <option value="1 Month" className="bg-slate-900">1 Month</option>
+                  <option value="Flexible" className="bg-slate-900">Flexible</option>
                 </select>
               </div>
 
@@ -328,15 +278,45 @@ export default function MobilePricing() {
                     onChange={(e) => setModalCurrency(e.target.value)}
                     className="bg-slate-800 text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-700"
                   >
-                    <option value="USD">USD ($)</option>
-                    <option value="INR">INR (₹)</option>
-                    <option value="GBP">GBP (£)</option>
-                    <option value="EUR">EUR (€)</option>
+                    <option value="USD" className="bg-slate-900 text-white">USD ($)</option>
+                    <option value="INR" className="bg-slate-900 text-white">INR (₹)</option>
+                    <option value="GBP" className="bg-slate-900 text-white">GBP (£)</option>
+                    <option value="EUR" className="bg-slate-900 text-white">EUR (€)</option>
+                    <option value="CAD" className="bg-slate-900 text-white">CAD (CA$)</option>
+                    <option value="AUD" className="bg-slate-900 text-white">AUD (A$)</option>
                   </select>
                 </div>
+
                 <select name="estimated_budget" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none">
-                  <option value="Custom / Enterprise">Custom / Enterprise Project</option>
-                  <option value="Standard Tier">Standard Tier Scope</option>
+                  {modalCurrency === 'INR' ? (
+                    <>
+                      <option value="₹50,000 - ₹1,00,000" className="bg-slate-900">₹50,000 - ₹1,00,000</option>
+                      <option value="₹1,00,000 - ₹3,00,000" className="bg-slate-900">₹1,00,000 - ₹3,00,000</option>
+                      <option value="₹3,00,000 - ₹5,00,000+" className="bg-slate-900">₹3,00,000 - ₹5,00,000+</option>
+                      <option value="Custom / Enterprise" className="bg-slate-900">Custom / Enterprise</option>
+                    </>
+                  ) : modalCurrency === 'GBP' ? (
+                    <>
+                      <option value="£1,000 - £3,000" className="bg-slate-900">£1,000 - £3,000</option>
+                      <option value="£3,000 - £7,000" className="bg-slate-900">£3,000 - £7,000</option>
+                      <option value="£7,000 - £15,000+" className="bg-slate-900">£7,000 - £15,000+</option>
+                      <option value="Custom / Enterprise" className="bg-slate-900">Custom / Enterprise</option>
+                    </>
+                  ) : modalCurrency === 'EUR' ? (
+                    <>
+                      <option value="€1,000 - €3,000" className="bg-slate-900">€1,000 - €3,000</option>
+                      <option value="€3,000 - €7,000" className="bg-slate-900">€3,000 - €7,000</option>
+                      <option value="€7,000 - €15,000+" className="bg-slate-900">€7,000 - €15,000+</option>
+                      <option value="Custom / Enterprise" className="bg-slate-900">Custom / Enterprise</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="$1,000 - $3,000" className="bg-slate-900">$1,000 - $3,000 ({modalCurrency})</option>
+                      <option value="$3,000 - $7,000" className="bg-slate-900">$3,000 - $7,000 ({modalCurrency})</option>
+                      <option value="$7,000 - $15,000+" className="bg-slate-900">$7,000 - $15,000+ ({modalCurrency})</option>
+                      <option value="Custom / Enterprise" className="bg-slate-900">Custom / Enterprise</option>
+                    </>
+                  )}
                 </select>
               </div>
 
@@ -349,14 +329,12 @@ export default function MobilePricing() {
                 Submit Inquiry
               </button>
             </form>
-
           </div>
         </div>
       )}
 
-      {/* Footer */}
       <footer className="bg-slate-950 text-slate-500 py-6 text-center text-[10px] font-mono mt-auto">
-        © {new Date().getFullYear()} RAJAT.AI. All rights reserved.
+        © {new Date().getFullYear()} RAJAT|TECH. All rights reserved.
       </footer>
     </div>
   );

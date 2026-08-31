@@ -190,7 +190,7 @@ export default function MobileServices() {
 
       {/* Footer */}
       <footer className="bg-white text-slate-400 py-6 text-center text-[10px] font-mono">
-        <p>© {new Date().getFullYear()} RAJAT.AI. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} RAJAT|TECH. All rights reserved.</p>
       </footer>
     </div>
   );

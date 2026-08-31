@@ -163,7 +163,7 @@ export default function MobileTeam() {
 
       {/* Footer */}
       <footer className="bg-slate-950 text-slate-500 py-6 text-center text-[10px] font-mono">
-        © {new Date().getFullYear()} RAJAT.AI. All rights reserved.
+        © {new Date().getFullYear()} RAJAT|TECH. All rights reserved.
       </footer>
     </div>
   );

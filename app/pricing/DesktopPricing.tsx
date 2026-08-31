@@ -74,8 +74,6 @@ export default function DesktopPricing() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white flex flex-col relative">
-      
-      {/* Minimal Navbar */}
       <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full bg-slate-50/90 backdrop-blur-md border-b border-slate-200/50">
         <Link href="/" className="text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-2.5">
           <span className="w-3.5 h-3.5 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.6)]"></span>
@@ -92,7 +90,6 @@ export default function DesktopPricing() {
         </Link>
       </nav>
 
-      {/* Pricing Header */}
       <header className="pt-24 pb-16 px-6 text-center max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 text-xs font-bold tracking-wider text-blue-700 bg-blue-50 rounded-full">
           INVESTMENT PLANS
@@ -105,11 +102,8 @@ export default function DesktopPricing() {
         </p>
       </header>
 
-      {/* Pricing Cards Grid */}
       <main className="flex-grow max-w-7xl mx-auto px-6 pb-24 w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch pt-6">
-          
-          {/* Tier 1: Core Setup */}
           <div className="bg-white text-slate-900 p-10 rounded-[2.5rem] border border-slate-200 shadow-sm transition-all duration-300 flex flex-col justify-between h-full group hover:bg-slate-900 hover:text-white hover:border-slate-800 hover:shadow-2xl hover:-translate-y-3 cursor-pointer">
             <div>
               <h3 className="text-2xl font-black mb-2 group-hover:text-white transition-colors">Core Foundation</h3>
@@ -133,7 +127,6 @@ export default function DesktopPricing() {
             </ul>
           </div>
 
-          {/* Tier 2: Enterprise Scale */}
           <div className="bg-white text-slate-900 p-10 rounded-[2.5rem] border border-slate-200 shadow-sm transition-all duration-300 flex flex-col justify-between h-full group hover:bg-slate-900 hover:text-white hover:border-slate-800 hover:shadow-2xl hover:-translate-y-3 cursor-pointer relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-md">
               Most Popular
@@ -161,7 +154,6 @@ export default function DesktopPricing() {
             </ul>
           </div>
 
-          {/* Tier 3: Dedicated Ops */}
           <div className="bg-white text-slate-900 p-10 rounded-[2.5rem] border border-slate-200 shadow-sm transition-all duration-300 flex flex-col justify-between h-full group hover:bg-slate-900 hover:text-white hover:border-slate-800 hover:shadow-2xl hover:-translate-y-3 cursor-pointer">
             <div>
               <h3 className="text-2xl font-black mb-2 group-hover:text-white transition-colors">Dedicated Ops</h3>
@@ -184,15 +176,12 @@ export default function DesktopPricing() {
               <li className="flex items-center gap-3"><span className="text-blue-500 group-hover:text-blue-400">✓</span> Priority 24/7 Support Channel</li>
             </ul>
           </div>
-
         </div>
       </main>
 
-      {/* POPUP MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
           <div className="bg-slate-900 border border-slate-800 p-8 rounded-[2.5rem] max-w-xl w-full shadow-2xl relative text-white max-h-[90vh] overflow-y-auto">
-            
             <button 
               onClick={() => setIsModalOpen(false)}
               className="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-lg transition-colors cursor-pointer"
@@ -218,11 +207,11 @@ export default function DesktopPricing() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Full Name</label>
-                  <input type="text" name="name" required className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm" placeholder="John Doe" />
+                  <input type="text" name="name" required className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm" placeholder="John Doe" />
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Email Address</label>
-                  <input type="email" name="email" required className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm" placeholder="john@company.com" />
+                  <input type="email" name="email" required className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm" placeholder="john@company.com" />
                 </div>
               </div>
 
@@ -236,7 +225,7 @@ export default function DesktopPricing() {
                       className="bg-slate-800 border border-slate-700 rounded-xl px-2 py-3 text-white font-bold text-xs focus:outline-none focus:border-blue-500 cursor-pointer max-w-[110px]"
                     >
                       {countryCodes.map((item, idx) => (
-                        <option key={idx} value={item.code}>
+                        <option key={idx} value={item.code} className="bg-slate-900 text-white">
                           {item.code} ({item.name})
                         </option>
                       ))}
@@ -247,7 +236,7 @@ export default function DesktopPricing() {
                       value={mobileNumber}
                       onChange={(e) => setMobileNumber(e.target.value)}
                       required 
-                      className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm" 
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm" 
                       placeholder="9876543210" 
                     />
                   </div>
@@ -255,11 +244,11 @@ export default function DesktopPricing() {
 
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Expected Timeline</label>
-                  <select name="timeline" className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm cursor-pointer">
-                    <option value="Urgent (ASAP)">Urgent (ASAP)</option>
-                    <option value="1-2 Weeks">1-2 Weeks</option>
-                    <option value="1 Month">1 Month</option>
-                    <option value="Flexible">Flexible</option>
+                  <select name="timeline" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm cursor-pointer">
+                    <option value="Urgent (ASAP)" className="bg-slate-900">Urgent (ASAP)</option>
+                    <option value="1-2 Weeks" className="bg-slate-900">1-2 Weeks</option>
+                    <option value="1 Month" className="bg-slate-900">1 Month</option>
+                    <option value="Flexible" className="bg-slate-900">Flexible</option>
                   </select>
                 </div>
               </div>
@@ -272,43 +261,43 @@ export default function DesktopPricing() {
                     onChange={(e) => setModalCurrency(e.target.value)}
                     className="bg-slate-800 text-blue-400 text-xs font-bold px-2.5 py-1 rounded-lg border border-slate-700 focus:outline-none cursor-pointer"
                   >
-                    <option value="USD">USD ($)</option>
-                    <option value="INR">INR (₹)</option>
-                    <option value="GBP">GBP (£)</option>
-                    <option value="EUR">EUR (€)</option>
-                    <option value="CAD">CAD (CA$)</option>
-                    <option value="AUD">AUD (A$)</option>
+                    <option value="USD" className="bg-slate-900 text-white">USD ($)</option>
+                    <option value="INR" className="bg-slate-900 text-white">INR (₹)</option>
+                    <option value="GBP" className="bg-slate-900 text-white">GBP (£)</option>
+                    <option value="EUR" className="bg-slate-900 text-white">EUR (€)</option>
+                    <option value="CAD" className="bg-slate-900 text-white">CAD (CA$)</option>
+                    <option value="AUD" className="bg-slate-900 text-white">AUD (A$)</option>
                   </select>
                 </div>
 
-                <select name="estimated_budget" className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm cursor-pointer">
+                <select name="estimated_budget" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm cursor-pointer">
                   {modalCurrency === 'INR' ? (
                     <>
-                      <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
-                      <option value="₹1,00,000 - ₹3,00,000">₹1,00,000 - ₹3,00,000</option>
-                      <option value="₹3,00,000 - ₹5,00,000+">₹3,00,000 - ₹5,00,000+</option>
-                      <option value="Custom / Enterprise">Custom / Enterprise</option>
+                      <option value="₹50,000 - ₹1,00,000" className="bg-slate-900">₹50,000 - ₹1,00,000</option>
+                      <option value="₹1,00,000 - ₹3,00,000" className="bg-slate-900">₹1,00,000 - ₹3,00,000</option>
+                      <option value="₹3,00,000 - ₹5,00,000+" className="bg-slate-900">₹3,00,000 - ₹5,00,000+</option>
+                      <option value="Custom / Enterprise" className="bg-slate-900">Custom / Enterprise</option>
                     </>
                   ) : modalCurrency === 'GBP' ? (
                     <>
-                      <option value="£1,000 - £3,000">£1,000 - £3,000</option>
-                      <option value="£3,000 - £7,000">£3,000 - £7,000</option>
-                      <option value="£7,000 - £15,000+">£7,000 - £15,000+</option>
-                      <option value="Custom / Enterprise">Custom / Enterprise</option>
+                      <option value="£1,000 - £3,000" className="bg-slate-900">£1,000 - £3,000</option>
+                      <option value="£3,000 - £7,000" className="bg-slate-900">£3,000 - £7,000</option>
+                      <option value="£7,000 - £15,000+" className="bg-slate-900">£7,000 - £15,000+</option>
+                      <option value="Custom / Enterprise" className="bg-slate-900">Custom / Enterprise</option>
                     </>
                   ) : modalCurrency === 'EUR' ? (
                     <>
-                      <option value="€1,000 - €3,000">€1,000 - €3,000</option>
-                      <option value="€3,000 - €7,000">€3,000 - €7,000</option>
-                      <option value="€7,000 - €15,000+">€7,000 - €15,000+</option>
-                      <option value="Custom / Enterprise">Custom / Enterprise</option>
+                      <option value="€1,000 - €3,000" className="bg-slate-900">€1,000 - €3,000</option>
+                      <option value="€3,000 - €7,000" className="bg-slate-900">€3,000 - €7,000</option>
+                      <option value="€7,000 - €15,000+" className="bg-slate-900">€7,000 - €15,000+</option>
+                      <option value="Custom / Enterprise" className="bg-slate-900">Custom / Enterprise</option>
                     </>
                   ) : (
                     <>
-                      <option value="$1,000 - $3,000">$1,000 - $3,000 ({modalCurrency})</option>
-                      <option value="$3,000 - $7,000">$3,000 - $7,000 ({modalCurrency})</option>
-                      <option value="$7,000 - $15,000+">$7,000 - $15,000+ ({modalCurrency})</option>
-                      <option value="Custom / Enterprise">Custom / Enterprise</option>
+                      <option value="$1,000 - $3,000" className="bg-slate-900">$1,000 - $3,000 ({modalCurrency})</option>
+                      <option value="$3,000 - $7,000" className="bg-slate-900">$3,000 - $7,000 ({modalCurrency})</option>
+                      <option value="$7,000 - $15,000+" className="bg-slate-900">$7,000 - $15,000+ ({modalCurrency})</option>
+                      <option value="Custom / Enterprise" className="bg-slate-900">Custom / Enterprise</option>
                     </>
                   )}
                 </select>
@@ -316,20 +305,19 @@ export default function DesktopPricing() {
 
               <div className="space-y-1">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Project Scope & Requirements</label>
-                <textarea name="message" rows={3} required className="w-full bg-slate-800/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm resize-none" placeholder="Describe your features, backend needs, or specific scope..."></textarea>
+                <textarea name="message" rows={3} required className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-all text-sm resize-none" placeholder="Describe your features, backend needs, or specific scope..."></textarea>
               </div>
 
               <button type="submit" className="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/30 cursor-pointer mt-2">
                 Submit Inquiry
               </button>
             </form>
-
           </div>
         </div>
       )}
 
       <footer className="bg-slate-950 text-slate-500 py-8 text-center text-xs font-mono mt-auto">
-        <p>© {new Date().getFullYear()} RAJAT.AI. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} RAJAT|TECH. All rights reserved.</p>
       </footer>
     </div>
   );

@@ -105,7 +105,7 @@ export default function DesktopTeam() {
 
       {/* Footer */}
       <footer className="bg-slate-950 text-slate-500 py-8 text-center text-xs font-mono">
-        <p>© {new Date().getFullYear()} RAJAT.AI. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} RAJAT|TECH. All rights reserved.</p>
       </footer>
     </div>
   );

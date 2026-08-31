@@ -206,7 +206,7 @@ export default function MobileHome() {
 
       {/* FOOTER */}
       <footer className="bg-slate-950 text-slate-500 py-6 text-center text-[9px] font-mono">
-        © {new Date().getFullYear()} RAJAT.AI. All rights reserved.
+        © {new Date().getFullYear()} RAJAT|TECH. All rights reserved.
       </footer>
 
     </div>
