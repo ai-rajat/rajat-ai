@@ -1,28 +1,18 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import DesktopHome from './DesktopHome';
 import MobileHome from './MobileHome';
 
 export default function Home() {
-  const [mobile, setMobile] = useState(false);
+  return (
+    <>
+      {/* Desktop / Tablet */}
+      <div className="hidden md:block">
+        <DesktopHome />
+      </div>
 
-  useEffect(() => {
-    const check = () => {
-      if (window.innerWidth < 768) {
-        setMobile(true);
-      } else {
-        setMobile(false);
-      }
-    };
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-
-  if (mobile) {
-    return <MobileHome />;
-  }
-
-  return <DesktopHome />;
+      {/* Mobile */}
+      <div className="block md:hidden">
+        <MobileHome />
+      </div>
+    </>
+  );
 }
