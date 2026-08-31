@@ -30,13 +30,25 @@ export default function MobileHome() {
       )}
 
       <main className="flex-grow flex flex-col items-center justify-center pt-16 pb-16 px-4 text-center">
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 text-[10px] font-bold tracking-wider text-blue-700 bg-blue-50 border border-blue-100 rounded-full">
+          <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+          AVAILABLE FOR NEW PROJECTS
+        </div>
         <h1 className="text-4xl font-black tracking-tight mb-6 text-slate-900 leading-tight">
           We Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">High-Scale</span> Digital Products.
         </h1>
-        <p className="text-sm text-slate-500 max-w-xl mx-auto mb-8 font-medium">
+        <p className="text-sm text-slate-500 max-w-xl mx-auto mb-8 font-medium leading-relaxed">
           From complex payment panels to real-time AI processing pipelines. We engineer secure, fast, and scalable ecosystems.
         </p>
+        <div className="flex flex-col gap-3 w-full">
+          <Link href="/projects" className="py-3.5 text-xs font-bold bg-blue-600 text-white rounded-xl shadow">View Our Work</Link>
+          <a href="#contact" className="py-3.5 text-xs font-bold bg-white border border-slate-200 text-slate-700 rounded-xl">Start a Project</a>
+        </div>
       </main>
+
+      <footer className="bg-slate-950 text-slate-500 py-6 text-center text-[10px] font-mono">
+        <p>© {new Date().getFullYear()} RAJAT.AI. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

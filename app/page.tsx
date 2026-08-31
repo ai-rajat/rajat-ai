@@ -5,19 +5,24 @@ import DesktopHome from './DesktopHome';
 import MobileHome from './MobileHome';
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => {
-      setIsMobile(window.innerWidth < 768);
+    const check = () => {
+      if (window.innerWidth < 768) {
+        setMobile(true);
+      } else {
+        setMobile(false);
+      }
     };
-    checkScreen();
-    window.addEventListener('resize', checkScreen);
-    return () => window.removeEventListener('resize', checkScreen);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
   }, []);
 
-  // Jab tak detect ho raha hai, tab tak default desktop dikhao taaki flicker na ho
-  if (isMobile === null) return <DesktopHome />;
+  if (mobile) {
+    return <MobileHome />;
+  }
 
-  return isMobile ? <MobileHome /> : <DesktopHome />;
+  return <DesktopHome />;
 }
