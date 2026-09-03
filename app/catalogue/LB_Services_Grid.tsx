@@ -1,4 +1,10 @@
-export default function LB_Services_Grid({ theme = 'minimal-store' }: { theme?: string }) {
+'use client';
+
+interface LB_Services_GridProps {
+  theme?: string;
+}
+
+export default function LB_Services_Grid({ theme = 'minimal-store' }: LB_Services_GridProps) {
   const themeStyles: Record<string, any> = {
     'modern-cafe': {
       bg: 'bg-[#111]',
@@ -62,7 +68,7 @@ export default function LB_Services_Grid({ theme = 'minimal-store' }: { theme?: 
     }
   };
 
-  const current = themeStyles[theme] || themeStyles['minimal-store'];
+  const current = themeStyles[theme || 'minimal-store'] || themeStyles['minimal-store'];
 
   const services = [
     {
