@@ -44,6 +44,9 @@ export default function MobileHome() {
                 <Link href="/projects" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
                   <span>🚀 Work / Projects</span><span className="text-blue-500">&rarr;</span>
                 </Link>
+                <Link href="/catalogue" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
+                  <span>🛍️ Catalogue</span><span className="text-blue-500">&rarr;</span>
+                </Link>
                 <Link href="/team" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
                   <span>👥 Leadership</span><span className="text-blue-500">&rarr;</span>
                 </Link>

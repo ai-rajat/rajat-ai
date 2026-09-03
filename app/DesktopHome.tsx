@@ -18,13 +18,17 @@ export default function DesktopHome() {
           <span>RAJAT<span className="text-blue-600"> | TECH</span></span>
         </Link>
         
-        <div className="flex gap-10 text-sm font-bold tracking-tight text-slate-500">
+        <div className="flex gap-8 text-sm font-bold tracking-tight text-slate-500">
           <Link href="/services" className="relative group hover:text-slate-900 transition-colors">
             Services
             <span className="absolute -bottom-1.5 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link href="/projects" className="relative group hover:text-slate-900 transition-colors">
             Work / Projects
+            <span className="absolute -bottom-1.5 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link href="/catalogue" className="relative group hover:text-slate-900 transition-colors">
+            Catalogue
             <span className="absolute -bottom-1.5 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link href="/team" className="relative group hover:text-slate-900 transition-colors">
