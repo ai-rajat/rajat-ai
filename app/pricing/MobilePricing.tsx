@@ -105,6 +105,9 @@ export default function MobilePricing() {
                 <Link href="/projects" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
                   <span>🚀 Work / Projects</span><span className="text-blue-500">&rarr;</span>
                 </Link>
+                <Link href="/catalogue" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
+                  <span>🛍️ Catalogue</span><span className="text-blue-500">&rarr;</span>
+                </Link>
                 <Link href="/team" onClick={() => setIsOpen(false)} className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100">
                   <span>👥 Leadership</span><span className="text-blue-500">&rarr;</span>
                 </Link>
@@ -147,7 +150,7 @@ export default function MobilePricing() {
                 <span className="text-3xl font-black">Custom</span>
                 <span className="text-slate-400 text-xs font-medium ml-1.5">/ project</span>
               </div>
-              <button onClick={() => handleOpenModal('Core Foundation')} className="w-full py-3 text-center text-xs font-bold bg-slate-50 text-slate-900 border border-slate-200 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all mb-6 shadow-sm">
+              <button onClick={() => handleOpenModal('Core Foundation')} className="w-full py-3 text-center text-xs font-bold bg-slate-50 text-slate-900 border border-slate-200 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all mb-6 shadow-sm cursor-pointer">
                 Request Quote
               </button>
             </div>
@@ -170,7 +173,7 @@ export default function MobilePricing() {
                 <span className="text-3xl font-black">Custom</span>
                 <span className="text-slate-400 text-xs font-medium ml-1.5">/ project</span>
               </div>
-              <button onClick={() => handleOpenModal('Enterprise Scale')} className="w-full py-3 text-center text-xs font-bold bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all mb-6 shadow-md">
+              <button onClick={() => handleOpenModal('Enterprise Scale')} className="w-full py-3 text-center text-xs font-bold bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all mb-6 shadow-md cursor-pointer">
                 Initiate Project
               </button>
             </div>
@@ -190,7 +193,7 @@ export default function MobilePricing() {
                 <span className="text-3xl font-black">Retainer</span>
                 <span className="text-slate-400 text-xs font-medium ml-1.5">/ monthly</span>
               </div>
-              <button onClick={() => handleOpenModal('Dedicated Ops')} className="w-full py-3 text-center text-xs font-bold bg-slate-50 text-slate-900 border border-slate-200 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all mb-6 shadow-sm">
+              <button onClick={() => handleOpenModal('Dedicated Ops')} className="w-full py-3 text-center text-xs font-bold bg-slate-50 text-slate-900 border border-slate-200 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all mb-6 shadow-sm cursor-pointer">
                 Partner With Us
               </button>
             </div>
@@ -207,7 +210,7 @@ export default function MobilePricing() {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-[2rem] max-w-md w-full shadow-2xl relative text-white max-h-[90vh] overflow-y-auto">
-            <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm">
+            <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm cursor-pointer">
               ✕
             </button>
 
@@ -242,7 +245,7 @@ export default function MobilePricing() {
                   <select 
                     value={countryCode} 
                     onChange={(e) => setCountryCode(e.target.value)}
-                    className="bg-slate-800 border border-slate-700 rounded-xl px-1.5 py-2.5 text-white font-bold text-[10px] focus:outline-none max-w-[95px]"
+                    className="bg-slate-800 border border-slate-700 rounded-xl px-1.5 py-2.5 text-white font-bold text-[10px] focus:outline-none max-w-[95px] cursor-pointer"
                   >
                     {countryCodes.map((item, idx) => (
                       <option key={idx} value={item.code} className="bg-slate-900 text-white">{item.code} ({item.name})</option>
@@ -262,7 +265,7 @@ export default function MobilePricing() {
 
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Expected Timeline</label>
-                <select name="timeline" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none">
+                <select name="timeline" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none cursor-pointer">
                   <option value="Urgent (ASAP)" className="bg-slate-900">Urgent (ASAP)</option>
                   <option value="1-2 Weeks" className="bg-slate-900">1-2 Weeks</option>
                   <option value="1 Month" className="bg-slate-900">1 Month</option>
@@ -276,7 +279,7 @@ export default function MobilePricing() {
                   <select 
                     value={modalCurrency} 
                     onChange={(e) => setModalCurrency(e.target.value)}
-                    className="bg-slate-800 text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-700"
+                    className="bg-slate-800 text-blue-400 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-700 cursor-pointer"
                   >
                     <option value="USD" className="bg-slate-900 text-white">USD ($)</option>
                     <option value="INR" className="bg-slate-900 text-white">INR (₹)</option>
@@ -287,7 +290,7 @@ export default function MobilePricing() {
                   </select>
                 </div>
 
-                <select name="estimated_budget" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none">
+                <select name="estimated_budget" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none cursor-pointer">
                   {modalCurrency === 'INR' ? (
                     <>
                       <option value="₹50,000 - ₹1,00,000" className="bg-slate-900">₹50,000 - ₹1,00,000</option>
@@ -325,7 +328,7 @@ export default function MobilePricing() {
                 <textarea name="message" rows={2} required className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none resize-none" placeholder="Describe requirements..."></textarea>
               </div>
 
-              <button type="submit" className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-md text-xs mt-1">
+              <button type="submit" className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-md text-xs mt-1 cursor-pointer">
                 Submit Inquiry
               </button>
             </form>

@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 
 import Link from 'next/link';
 import { useState } from 'react';
@@ -63,14 +63,14 @@ export default function DesktopHome() {
           From complex payment panels to real-time AI processing pipelines. We engineer secure, fast, and scalable ecosystems.
         </p>
         <div className="flex justify-center gap-4">
-          <Link href="/projects" className="px-8 py-3.5 text-sm font-bold bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all shadow-md">
+          <Link href="/projects" className="px-8 py-3.5 text-sm font-bold bg-blue-600 text-white rounded-full hover:bg-blue-700 hover:shadow-xl hover:-translate-y-1 transition-all shadow-md">
             View Our Work
           </Link>
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="px-8 py-3.5 text-sm font-bold bg-white border-2 border-slate-200 text-slate-700 rounded-full hover:bg-slate-50 transition-all cursor-pointer shadow-sm"
+            className="px-8 py-3.5 text-sm font-bold bg-white border-2 border-slate-900 text-slate-900 rounded-full hover:bg-slate-900 hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all cursor-pointer shadow-sm"
           >
-            Start a Project
+            Start a Project ✨
           </button>
         </div>
       </main>
@@ -101,10 +101,22 @@ export default function DesktopHome() {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm"><div className="text-blue-600 text-2xl mb-2">⚡</div><div className="font-bold text-slate-900">Zero Downtime</div></div>
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm"><div className="text-blue-600 text-2xl mb-2">🛡️</div><div className="font-bold text-slate-900">E2E Encryption</div></div>
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm"><div className="text-blue-600 text-2xl mb-2">🚀</div><div className="font-bold text-slate-900">Next.js & Java</div></div>
-            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm"><div className="text-blue-600 text-2xl mb-2">📊</div><div className="font-bold text-slate-900">High Volume</div></div>
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-blue-500 transition-all duration-300 cursor-pointer group">
+              <div className="text-blue-600 text-2xl mb-2 group-hover:scale-110 transition-transform">⚡</div>
+              <div className="font-bold text-slate-900">Zero Downtime</div>
+            </div>
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-blue-500 transition-all duration-300 cursor-pointer group">
+              <div className="text-blue-600 text-2xl mb-2 group-hover:scale-110 transition-transform">🛡️</div>
+              <div className="font-bold text-slate-900">E2E Encryption</div>
+            </div>
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-blue-500 transition-all duration-300 cursor-pointer group">
+              <div className="text-blue-600 text-2xl mb-2 group-hover:scale-110 transition-transform">🚀</div>
+              <div className="font-bold text-slate-900">Next.js & Java</div>
+            </div>
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-blue-500 transition-all duration-300 cursor-pointer group">
+              <div className="text-blue-600 text-2xl mb-2 group-hover:scale-110 transition-transform">📊</div>
+              <div className="font-bold text-slate-900">High Volume</div>
+            </div>
           </div>
         </div>
       </section>

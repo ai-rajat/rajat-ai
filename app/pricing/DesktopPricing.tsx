@@ -79,9 +79,10 @@ export default function DesktopPricing() {
           <span className="w-3.5 h-3.5 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.6)]"></span>
           <span>RAJAT<span className="text-blue-600"> | TECH</span></span>
         </Link>
-        <div className="hidden md:flex gap-10 text-sm font-semibold tracking-tight text-slate-500">
+        <div className="hidden md:flex gap-8 text-sm font-semibold tracking-tight text-slate-500">
           <Link href="/services" className="hover:text-blue-600 transition-colors">Services</Link>
           <Link href="/projects" className="hover:text-blue-600 transition-colors">Work / Projects</Link>
+          <Link href="/catalogue" className="hover:text-blue-600 transition-colors">Catalogue</Link>
           <Link href="/team" className="hover:text-blue-600 transition-colors">Leadership</Link>
           <Link href="/pricing" className="text-blue-600 font-bold">Pricing</Link>
         </div>

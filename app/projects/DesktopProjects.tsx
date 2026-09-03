@@ -12,9 +12,10 @@ export default function DesktopProjects() {
           <span className="w-3.5 h-3.5 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.6)]"></span>
           <span>RAJAT<span className="text-blue-600"> | TECH</span></span>
         </Link>
-        <div className="hidden md:flex gap-10 text-sm font-semibold tracking-tight text-slate-500">
+        <div className="hidden md:flex gap-8 text-sm font-semibold tracking-tight text-slate-500">
           <Link href="/services" className="hover:text-blue-600 transition-colors">Services</Link>
           <Link href="/projects" className="text-blue-600 font-bold">Work / Projects</Link>
+          <Link href="/catalogue" className="hover:text-blue-600 transition-colors">Catalogue</Link>
           <Link href="/team" className="hover:text-blue-600 transition-colors">Leadership</Link>
           <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
         </div>
@@ -41,7 +42,7 @@ export default function DesktopProjects() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Project 1: Crypto & Forex Signals Bot & Panel */}
-          <div className="bg-white p-10 rounded-[2rem] border border-slate-200/60 shadow-sm hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white p-10 rounded-[2rem] border border-slate-200/60 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📈</div>
@@ -60,7 +61,7 @@ export default function DesktopProjects() {
           </div>
 
           {/* Project 2: Casino Apps with Admin Portal */}
-          <div className="bg-white p-10 rounded-[2rem] border border-slate-200/60 shadow-sm hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white p-10 rounded-[2rem] border border-slate-200/60 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🎰</div>
@@ -79,7 +80,7 @@ export default function DesktopProjects() {
           </div>
 
           {/* Project 3: We Pay */}
-          <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">💳</div>
@@ -98,7 +99,7 @@ export default function DesktopProjects() {
           </div>
 
           {/* Project 4: Droxy Mod */}
-          <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🎮</div>
@@ -117,7 +118,7 @@ export default function DesktopProjects() {
           </div>
 
           {/* Project 5: AI Pipeline */}
-          <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🎙️</div>
@@ -136,7 +137,7 @@ export default function DesktopProjects() {
           </div>
 
           {/* Project 6: Market Cap */}
-          <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 flex flex-col justify-between group">
+          <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📈</div>

@@ -23,7 +23,7 @@ export default function MobileHome() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="px-4 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl shadow-md transition-transform active:scale-95 z-50"
+          className="px-4 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl shadow-md transition-transform active:scale-95 z-50 cursor-pointer"
         >
           {isOpen ? 'Close ✕' : 'Menu ☰'}
         </button>
@@ -95,16 +95,16 @@ export default function MobileHome() {
         <div className="flex flex-col gap-3 mt-6 mx-auto max-w-[330px] w-full">
           <Link
             href="/projects"
-            className="w-full py-3.5 bg-blue-600 text-white rounded-xl text-[13px] font-bold shadow-md shadow-blue-600/20 text-center transition-all hover:bg-blue-700"
+            className="w-full py-3.5 bg-blue-600 text-white rounded-xl text-[13px] font-bold shadow-md shadow-blue-600/20 text-center transition-all hover:bg-blue-700 active:scale-95"
           >
             View Our Work
           </Link>
 
           <button
             onClick={() => setIsModalOpen(true)}
-            className="w-full py-3.5 bg-white border border-slate-200 text-slate-700 rounded-xl text-[13px] font-bold text-center transition-all hover:bg-slate-50 cursor-pointer shadow-sm"
+            className="w-full py-3.5 bg-white border-2 border-slate-900 text-slate-900 rounded-xl text-[13px] font-bold text-center transition-all hover:bg-slate-900 hover:text-white cursor-pointer shadow-sm active:scale-95"
           >
-            Start a Project
+            Start a Project ✨
           </button>
         </div>
       </main>
@@ -137,19 +137,19 @@ export default function MobileHome() {
         </div>
 
         <div className="grid grid-cols-2 gap-3">
-          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm">
+          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:bg-blue-50 hover:border-blue-500 active:scale-95 cursor-pointer">
             <div className="text-blue-600 text-xl mb-1.5">⚡</div>
             <div className="font-bold text-xs text-slate-900">Zero Downtime</div>
           </div>
-          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm">
+          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:bg-blue-50 hover:border-blue-500 active:scale-95 cursor-pointer">
             <div className="text-blue-600 text-xl mb-1.5">🛡️</div>
             <div className="font-bold text-xs text-slate-900">E2E Encryption</div>
           </div>
-          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm">
+          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:bg-blue-50 hover:border-blue-500 active:scale-95 cursor-pointer">
             <div className="text-blue-600 text-xl mb-1.5">🚀</div>
             <div className="font-bold text-xs text-slate-900">Next.js & Java</div>
           </div>
-          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm">
+          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:bg-blue-50 hover:border-blue-500 active:scale-95 cursor-pointer">
             <div className="text-blue-600 text-xl mb-1.5">📊</div>
             <div className="font-bold text-xs text-slate-900">High Volume</div>
           </div>
@@ -197,7 +197,7 @@ export default function MobileHome() {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
           <div className="bg-slate-900 border border-slate-800 p-6 rounded-[2rem] max-w-md w-full shadow-2xl relative text-white max-h-[90vh] overflow-y-auto">
-            <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm">
+            <button onClick={() => setIsModalOpen(false)} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center font-bold text-sm cursor-pointer">
               ✕
             </button>
 
@@ -230,7 +230,7 @@ export default function MobileHome() {
                   <select 
                     value={countryCode} 
                     onChange={(e) => setCountryCode(e.target.value)}
-                    className="bg-slate-800 border border-slate-700 rounded-xl px-1.5 py-2.5 text-white font-bold text-[10px] focus:outline-none max-w-[95px]"
+                    className="bg-slate-800 border border-slate-700 rounded-xl px-1.5 py-2.5 text-white font-bold text-[10px] focus:outline-none max-w-[95px] cursor-pointer"
                   >
                     <option value="+91" className="bg-slate-900">+91 (India)</option>
                     <option value="+1" className="bg-slate-900">+1 (USA/Canada)</option>
@@ -251,7 +251,7 @@ export default function MobileHome() {
 
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Expected Timeline</label>
-                <select name="timeline" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none">
+                <select name="timeline" className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-white text-xs focus:outline-none cursor-pointer">
                   <option value="Urgent (ASAP)" className="bg-slate-900">Urgent (ASAP)</option>
                   <option value="1-2 Weeks" className="bg-slate-900">1-2 Weeks</option>
                   <option value="1 Month" className="bg-slate-900">1 Month</option>

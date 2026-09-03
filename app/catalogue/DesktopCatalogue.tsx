@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import NavBar from './NavBar';
 
 // Shop Hub Components & Grid
@@ -71,7 +72,7 @@ export default function DesktopCatalogue() {
     { id: 'project-mgmt', title: 'Minimalist Workspace & Sprint', desc: 'Real-time sprint boards, velocity charts, and docs', badge: 'Productivity', component: <SAAS_Hero_ProjectMgmt /> },
   ];
 
-  // Agency & Portfolio Hub Categories
+  // Agency Hub Categories
   const agencyShops = [
     { id: 'creative-studio', title: 'Creative Digital Studio', desc: 'Bold typography agency look with interactive visual cards', badge: 'Agency', component: <Agency_Hero_CreativeStudio /> },
     { id: 'dev-portfolio', title: 'Developer & AI Specialist', desc: 'Code-snippet highlights, GitHub stats, and tech stack', badge: 'Developer', component: <Agency_Hero_DevPortfolio /> },
@@ -81,12 +82,12 @@ export default function DesktopCatalogue() {
     { id: 'freelance-consultant', title: 'Executive Tech Advisor', desc: 'Strategic consulting milestones and booking calendar', badge: 'Advisory', component: <Agency_Hero_FreelanceConsultant /> },
   ];
 
-  // 1. Agar koi specific design khula hai
+  // 1. Specific design view
   if (selectedDesign) {
     if (activeHub === 'shop') {
       const shop = shopShops.find(s => s.id === selectedDesign);
       return (
-        <main className="relative bg-black text-white min-h-screen">
+        <main className="relative bg-white text-gray-950 min-h-screen">
           {/* @ts-ignore */}
           <NavBar theme={shop?.id} onBack={() => setSelectedDesign(null)} />
           {shop?.component}
@@ -97,7 +98,7 @@ export default function DesktopCatalogue() {
     } else if (activeHub === 'real-estate') {
       const prop = realEstateShops.find(p => p.id === selectedDesign);
       return (
-        <main className="relative bg-black text-white min-h-screen">
+        <main className="relative bg-white text-gray-950 min-h-screen">
           {/* @ts-ignore */}
           <NavBar theme={prop?.id} onBack={() => setSelectedDesign(null)} />
           {prop?.component}
@@ -108,7 +109,7 @@ export default function DesktopCatalogue() {
     } else if (activeHub === 'saas') {
       const saas = saasShops.find(s => s.id === selectedDesign);
       return (
-        <main className="relative bg-black text-white min-h-screen">
+        <main className="relative bg-white text-gray-950 min-h-screen">
           {/* @ts-ignore */}
           <NavBar theme={saas?.id} onBack={() => setSelectedDesign(null)} />
           {saas?.component}
@@ -119,7 +120,7 @@ export default function DesktopCatalogue() {
     } else if (activeHub === 'agency') {
       const agency = agencyShops.find(a => a.id === selectedDesign);
       return (
-        <main className="relative bg-black text-white min-h-screen">
+        <main className="relative bg-white text-gray-950 min-h-screen">
           {/* @ts-ignore */}
           <NavBar theme={agency?.id} onBack={() => setSelectedDesign(null)} />
           {agency?.component}
@@ -128,29 +129,45 @@ export default function DesktopCatalogue() {
     }
   }
 
-  // 2. Shop Hub List
-  if (activeHub === 'shop') {
+  // 2. Hub list view
+  if (activeHub) {
+    const listData = 
+      activeHub === 'shop' ? shopShops :
+      activeHub === 'real-estate' ? realEstateShops :
+      activeHub === 'saas' ? saasShops : agencyShops;
+
+    const titleText = 
+      activeHub === 'shop' ? 'Store & Business Hub' :
+      activeHub === 'real-estate' ? 'Real Estate Hub' :
+      activeHub === 'saas' ? 'SaaS & AI Startup Hub' : 'Agency & Portfolio Hub';
+
     return (
-      <main className="min-h-screen bg-black text-white py-20 px-4 sm:px-6 lg:px-8 relative selection:bg-blue-600 selection:text-white">
+      <main className="min-h-screen bg-white text-gray-950 py-16 px-4 sm:px-6 lg:px-8 relative selection:bg-blue-600 selection:text-white">
         <div className="max-w-6xl mx-auto mb-8">
-          <button onClick={() => setActiveHub(null)} className="bg-slate-900 border border-slate-800 text-white px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase hover:bg-blue-600 transition shadow-lg">
-            ← Back to Master Hub
+          <button onClick={() => setActiveHub(null)} className="bg-slate-900 text-white px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase hover:bg-blue-600 transition shadow-md cursor-pointer">
+            ← Back to Industry Hubs
           </button>
         </div>
         <div className="max-w-6xl mx-auto text-center mb-16">
-          <span className="bg-blue-950 border border-blue-800/60 text-blue-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">Store & Business Hub</span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4 text-white">Select a Shop Design to Preview</h1>
-          <p className="text-slate-400 text-base max-w-xl mx-auto font-medium">Tap on any business card below to open its dedicated front page layout instantly.</p>
+          <span className="bg-blue-100 text-blue-900 border border-blue-200 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">{titleText}</span>
+          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4 text-gray-900">
+            Select Layout to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Preview</span>
+          </h1>
+          <p className="text-gray-600 text-base max-w-xl mx-auto font-medium">Tap on any card below to preview its exclusive layout.</p>
         </div>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {shopShops.map((shop) => (
-            <div key={shop.id} onClick={() => setSelectedDesign(shop.id)} className="bg-slate-900/60 backdrop-blur-md p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:border-blue-500 transition-all duration-300 border border-slate-800 cursor-pointer flex flex-col justify-between group">
+          {listData.map((item) => (
+            <div 
+              key={item.id} 
+              onClick={() => setSelectedDesign(item.id)} 
+              className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:bg-blue-600 hover:border-blue-600 hover:text-white active:scale-[0.98] transition-all duration-300 cursor-pointer flex flex-col justify-between group"
+            >
               <div>
-                <span className="text-xs font-bold text-blue-400 bg-blue-950/80 border border-blue-900 px-3 py-1 rounded-lg inline-block mb-4">{shop.badge}</span>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition">{shop.title}</h3>
-                <p className="text-slate-400 text-sm mt-2 leading-relaxed">{shop.desc}</p>
+                <span className="text-xs font-bold text-blue-900 bg-blue-100 group-hover:bg-blue-700 group-hover:text-white px-3 py-1 rounded-lg inline-block mb-4 transition-colors">{item.badge}</span>
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-white transition">{item.title}</h3>
+                <p className="text-gray-600 text-sm mt-2 leading-relaxed group-hover:text-blue-100 transition">{item.desc}</p>
               </div>
-              <div className="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold tracking-wider text-blue-400 uppercase">
+              <div className="mt-8 pt-4 border-t border-gray-100 group-hover:border-blue-500 flex items-center justify-between text-xs font-bold tracking-wider text-blue-600 group-hover:text-white uppercase transition-colors">
                 <span>View Layout</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </div>
@@ -161,116 +178,24 @@ export default function DesktopCatalogue() {
     );
   }
 
-  // 3. Real Estate Hub List
-  if (activeHub === 'real-estate') {
-    return (
-      <main className="min-h-screen bg-black text-white py-20 px-4 sm:px-6 lg:px-8 relative selection:bg-blue-600 selection:text-white">
-        <div className="max-w-6xl mx-auto mb-8">
-          <button onClick={() => setActiveHub(null)} className="bg-slate-900 border border-slate-800 text-white px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase hover:bg-blue-600 transition shadow-lg">
-            ← Back to Master Hub
-          </button>
-        </div>
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <span className="bg-blue-950 border border-blue-800/60 text-blue-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">Real Estate Hub</span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4 text-white">Select a Property Design to Preview</h1>
-          <p className="text-slate-400 text-base max-w-xl mx-auto font-medium">Tap on any property card below to preview its exclusive real estate presentation.</p>
-        </div>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {realEstateShops.map((prop) => (
-            <div key={prop.id} onClick={() => setSelectedDesign(prop.id)} className="bg-slate-900/60 backdrop-blur-md p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:border-blue-500 transition-all duration-300 border border-slate-800 cursor-pointer flex flex-col justify-between group">
-              <div>
-                <span className="text-xs font-bold text-blue-400 bg-blue-950/80 border border-blue-900 px-3 py-1 rounded-lg inline-block mb-4">{prop.badge}</span>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition">{prop.title}</h3>
-                <p className="text-slate-400 text-sm mt-2 leading-relaxed">{prop.desc}</p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold tracking-wider text-blue-400 uppercase">
-                <span>View Property Layout</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    );
-  }
-
-  // 4. SaaS Hub List
-  if (activeHub === 'saas') {
-    return (
-      <main className="min-h-screen bg-black text-white py-20 px-4 sm:px-6 lg:px-8 relative selection:bg-blue-600 selection:text-white">
-        <div className="max-w-6xl mx-auto mb-8">
-          <button onClick={() => setActiveHub(null)} className="bg-slate-900 border border-slate-800 text-white px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase hover:bg-blue-600 transition shadow-lg">
-            ← Back to Master Hub
-          </button>
-        </div>
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <span className="bg-blue-950 border border-blue-800/60 text-blue-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">SaaS & AI Startup Hub</span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4 text-white">Select a SaaS Platform to Preview</h1>
-          <p className="text-slate-400 text-base max-w-xl mx-auto font-medium">Tap on any software card below to preview its exclusive product landing page.</p>
-        </div>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {saasShops.map((saas) => (
-            <div key={saas.id} onClick={() => setSelectedDesign(saas.id)} className="bg-slate-900/60 backdrop-blur-md p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:border-blue-500 transition-all duration-300 border border-slate-800 cursor-pointer flex flex-col justify-between group">
-              <div>
-                <span className="text-xs font-bold text-blue-400 bg-blue-950/80 border border-blue-900 px-3 py-1 rounded-lg inline-block mb-4">{saas.badge}</span>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition">{saas.title}</h3>
-                <p className="text-slate-400 text-sm mt-2 leading-relaxed">{saas.desc}</p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold tracking-wider text-blue-400 uppercase">
-                <span>View SaaS Layout</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    );
-  }
-
-  // 5. Agency Hub List
-  if (activeHub === 'agency') {
-    return (
-      <main className="min-h-screen bg-black text-white py-20 px-4 sm:px-6 lg:px-8 relative selection:bg-blue-600 selection:text-white">
-        <div className="max-w-6xl mx-auto mb-8">
-          <button onClick={() => setActiveHub(null)} className="bg-slate-900 border border-slate-800 text-white px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase hover:bg-blue-600 transition shadow-lg">
-            ← Back to Master Hub
-          </button>
-        </div>
-        <div className="max-w-6xl mx-auto text-center mb-16">
-          <span className="bg-blue-950 border border-blue-800/60 text-blue-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">Agency & Portfolio Hub</span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4 text-white">Select an Agency Portfolio to Preview</h1>
-          <p className="text-slate-400 text-base max-w-xl mx-auto font-medium">Tap on any card below to preview its custom creator or agency showcase.</p>
-        </div>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {agencyShops.map((agency) => (
-            <div key={agency.id} onClick={() => setSelectedDesign(agency.id)} className="bg-slate-900/60 backdrop-blur-md p-6 rounded-3xl shadow-xl hover:shadow-2xl hover:border-blue-500 transition-all duration-300 border border-slate-800 cursor-pointer flex flex-col justify-between group">
-              <div>
-                <span className="text-xs font-bold text-blue-400 bg-blue-950/80 border border-blue-900 px-3 py-1 rounded-lg inline-block mb-4">{agency.badge}</span>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition">{agency.title}</h3>
-                <p className="text-slate-400 text-sm mt-2 leading-relaxed">{agency.desc}</p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold tracking-wider text-blue-400 uppercase">
-                <span>View Portfolio Layout</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    );
-  }
-
-  // 6. Main Landing Page (Master Hub Cards)
+  // 3. Main Landing Page (Master Hub Cards with Dual Color Heading)
   return (
-    <main className="min-h-screen bg-black text-white py-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center selection:bg-blue-600 selection:text-white">
-      <div className="max-w-5xl mx-auto text-center mb-16">
-        <span className="bg-blue-950 border border-blue-800/60 text-blue-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
+    <main className="min-h-screen bg-white text-gray-950 py-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center selection:bg-blue-600 selection:text-white relative">
+      {/* Back to Home Button */}
+      <div className="absolute top-6 left-6 sm:top-8 sm:left-12">
+        <Link href="/" className="bg-slate-900 text-white px-5 py-2.5 rounded-xl text-xs font-bold tracking-wider uppercase hover:bg-blue-600 transition shadow-lg inline-flex items-center gap-2 cursor-pointer">
+          ← Back to Website
+        </Link>
+      </div>
+
+      <div className="max-w-5xl mx-auto text-center mb-16 mt-10">
+        <span className="bg-blue-100 border border-blue-200 text-blue-900 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
           RAJAT \ TECH • MASTER SHOWCASE HUB
         </span>
-        <h1 className="text-4xl sm:text-6xl font-black tracking-tight mt-4 mb-4 text-white">
-          Select Your Industry Showcase
+        <h1 className="text-4xl sm:text-6xl font-black tracking-tight mt-4 mb-4 text-gray-900">
+          Select Your Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Showcase</span>
         </h1>
-        <p className="text-slate-400 text-base sm:text-lg max-w-xl mx-auto font-medium">
+        <p className="text-gray-600 text-base sm:text-lg max-w-xl mx-auto font-medium">
           Choose a sector below to explore high-end custom web design layouts tailored for clients.
         </p>
       </div>
@@ -279,16 +204,16 @@ export default function DesktopCatalogue() {
         {/* Shop Hub Card */}
         <div 
           onClick={() => setActiveHub('shop')}
-          className="bg-slate-900/60 backdrop-blur-md border border-slate-800 p-8 rounded-3xl cursor-pointer hover:shadow-2xl hover:border-blue-500 transition-all duration-300 group shadow-lg flex flex-col justify-between"
+          className="bg-white border border-gray-200 p-8 rounded-[2.5rem] cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:bg-blue-600 hover:border-blue-600 hover:text-white active:scale-[0.98] transition-all duration-300 group flex flex-col justify-between"
         >
           <div>
             <span className="text-4xl mb-4 block">🛍️</span>
-            <h2 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition">Store & Business Hub</h2>
-            <p className="text-slate-400 text-sm leading-relaxed font-medium">
+            <h2 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-white transition">Store & Business Hub</h2>
+            <p className="text-gray-600 text-sm leading-relaxed font-medium group-hover:text-blue-100 transition">
               Explore 6 bespoke layouts including Cafes, Boutiques, Gyms, and Tech Repair hubs.
             </p>
           </div>
-          <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between font-bold text-blue-400 text-xs tracking-wider uppercase">
+          <div className="mt-8 pt-4 border-t border-gray-100 group-hover:border-blue-500 flex items-center justify-between font-bold text-blue-600 group-hover:text-white text-xs tracking-wider uppercase transition-colors">
             <span>Open Shop Hub</span>
             <span className="group-hover:translate-x-2 transition-transform">→</span>
           </div>
@@ -297,16 +222,16 @@ export default function DesktopCatalogue() {
         {/* Real Estate Hub Card */}
         <div 
           onClick={() => setActiveHub('real-estate')}
-          className="bg-slate-900/60 backdrop-blur-md border border-slate-800 p-8 rounded-3xl cursor-pointer hover:shadow-2xl hover:border-blue-500 transition-all duration-300 group shadow-lg flex flex-col justify-between"
+          className="bg-white border border-gray-200 p-8 rounded-[2.5rem] cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:bg-blue-600 hover:border-blue-600 hover:text-white active:scale-[0.98] transition-all duration-300 group flex flex-col justify-between"
         >
           <div>
             <span className="text-4xl mb-4 block">🏰</span>
-            <h2 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition">Real Estate Hub</h2>
-            <p className="text-slate-400 text-sm leading-relaxed font-medium">
+            <h2 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-white transition">Real Estate Hub</h2>
+            <p className="text-gray-600 text-sm leading-relaxed font-medium group-hover:text-blue-100 transition">
               Explore 6 high-end layouts including Luxury Villas, Condos, and Penthouses.
             </p>
           </div>
-          <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between font-bold text-blue-400 text-xs tracking-wider uppercase">
+          <div className="mt-8 pt-4 border-t border-gray-100 group-hover:border-blue-500 flex items-center justify-between font-bold text-blue-600 group-hover:text-white text-xs tracking-wider uppercase transition-colors">
             <span>Open Real Estate Hub</span>
             <span className="group-hover:translate-x-2 transition-transform">→</span>
           </div>
@@ -315,16 +240,16 @@ export default function DesktopCatalogue() {
         {/* SaaS & AI Hub Card */}
         <div 
           onClick={() => setActiveHub('saas')}
-          className="bg-slate-900/60 backdrop-blur-md border border-slate-800 p-8 rounded-3xl cursor-pointer hover:shadow-2xl hover:border-blue-500 transition-all duration-300 group shadow-lg flex flex-col justify-between"
+          className="bg-white border border-gray-200 p-8 rounded-[2.5rem] cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:bg-blue-600 hover:border-blue-600 hover:text-white active:scale-[0.98] transition-all duration-300 group flex flex-col justify-between"
         >
           <div>
             <span className="text-4xl mb-4 block">⚡</span>
-            <h2 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition">SaaS & AI Hub</h2>
-            <p className="text-slate-400 text-sm leading-relaxed font-medium">
+            <h2 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-white transition">SaaS & AI Hub</h2>
+            <p className="text-gray-600 text-sm leading-relaxed font-medium group-hover:text-blue-100 transition">
               Explore 6 cutting-edge software layouts including AI Copilots, Fintech, and DevOps.
             </p>
           </div>
-          <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between font-bold text-blue-400 text-xs tracking-wider uppercase">
+          <div className="mt-8 pt-4 border-t border-gray-100 group-hover:border-blue-500 flex items-center justify-between font-bold text-blue-600 group-hover:text-white text-xs tracking-wider uppercase transition-colors">
             <span>Open SaaS Hub</span>
             <span className="group-hover:translate-x-2 transition-transform">→</span>
           </div>
@@ -333,16 +258,16 @@ export default function DesktopCatalogue() {
         {/* Agency & Portfolio Hub Card */}
         <div 
           onClick={() => setActiveHub('agency')}
-          className="bg-slate-900/60 backdrop-blur-md border border-slate-800 p-8 rounded-3xl cursor-pointer hover:shadow-2xl hover:border-blue-500 transition-all duration-300 group shadow-lg flex flex-col justify-between"
+          className="bg-white border border-gray-200 p-8 rounded-[2.5rem] cursor-pointer shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:bg-blue-600 hover:border-blue-600 hover:text-white active:scale-[0.98] transition-all duration-300 group flex flex-col justify-between"
         >
           <div>
             <span className="text-4xl mb-4 block">🎨</span>
-            <h2 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition">Agency & Portfolio Hub</h2>
-            <p className="text-slate-400 text-sm leading-relaxed font-medium">
+            <h2 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-white transition">Agency & Portfolio Hub</h2>
+            <p className="text-gray-600 text-sm leading-relaxed font-medium group-hover:text-blue-100 transition">
               Explore 6 creator portfolios including Developer, Video Editor, UI/UX, and Growth Agency.
             </p>
           </div>
-          <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between font-bold text-blue-400 text-xs tracking-wider uppercase">
+          <div className="mt-8 pt-4 border-t border-gray-100 group-hover:border-blue-500 flex items-center justify-between font-bold text-blue-600 group-hover:text-white text-xs tracking-wider uppercase transition-colors">
             <span>Open Agency Hub</span>
             <span className="group-hover:translate-x-2 transition-transform">→</span>
           </div>

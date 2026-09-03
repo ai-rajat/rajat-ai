@@ -20,7 +20,7 @@ export default function MobileProjects() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="px-4 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl shadow-md transition-transform active:scale-95 z-50"
+          className="px-4 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl shadow-md transition-transform active:scale-95 z-50 cursor-pointer"
         >
           {isOpen ? 'Close ✕' : 'Menu ☰'}
         </button>
@@ -54,6 +54,15 @@ export default function MobileProjects() {
                 </Link>
 
                 <Link
+                  href="/catalogue"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100"
+                >
+                  <span>🛍️ Catalogue</span>
+                  <span className="text-blue-500">&rarr;</span>
+                </Link>
+
+                <Link
                   href="/team"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100"
@@ -76,7 +85,7 @@ export default function MobileProjects() {
             <Link
               href="/#contact"
               onClick={() => setIsOpen(false)}
-              className="w-full text-center py-4 text-xs font-bold uppercase tracking-wider bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-600/30"
+              className="w-full text-center py-4 text-xs font-bold uppercase tracking-wider bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-600/30 cursor-pointer"
             >
               Let's Talk
             </Link>
@@ -201,7 +210,7 @@ export default function MobileProjects() {
       <section className="bg-slate-900 text-white py-14 px-4 text-center">
         <h2 className="text-2xl font-black mb-3">Have a complex requirement?</h2>
         <p className="text-slate-400 text-xs mb-6 max-w-xs mx-auto">Our architecture handles edge cases, high volume, and secure operations.</p>
-        <Link href="/#contact" className="inline-block px-6 py-3 text-xs font-bold bg-blue-600 text-white rounded-full hover:bg-blue-500 transition-all shadow-lg">
+        <Link href="/#contact" className="inline-block px-6 py-3 text-xs font-bold bg-blue-600 text-white rounded-full hover:bg-blue-500 transition-all shadow-lg cursor-pointer">
           Discuss Your Project
         </Link>
       </section>

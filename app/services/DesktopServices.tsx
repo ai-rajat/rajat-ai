@@ -12,9 +12,10 @@ export default function DesktopServices() {
           <span className="w-3.5 h-3.5 rounded-full bg-blue-600 shadow-[0_0_12px_rgba(37,99,235,0.6)]"></span>
           <span>RAJAT<span className="text-blue-600"> | TECH</span></span>
         </Link>
-        <div className="hidden md:flex gap-10 text-sm font-semibold tracking-tight text-slate-500">
+        <div className="hidden md:flex gap-8 text-sm font-semibold tracking-tight text-slate-500">
           <Link href="/services" className="text-blue-600 font-bold">Services</Link>
           <Link href="/projects" className="hover:text-blue-600 transition-colors">Work / Projects</Link>
+          <Link href="/catalogue" className="hover:text-blue-600 transition-colors">Catalogue</Link>
           <Link href="/team" className="hover:text-blue-600 transition-colors">Leadership</Link>
           <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
         </div>
@@ -36,12 +37,12 @@ export default function DesktopServices() {
         </p>
       </header>
 
-      {/* Services Grid (6 Comprehensive Boxes) */}
+      {/* Services Grid (6 Comprehensive Boxes with Hover Effects) */}
       <main className="flex-grow max-w-7xl mx-auto px-6 pb-24 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Service 1: Custom Web & Mobile Apps */}
-          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 group flex flex-col justify-between">
+          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                 🌐
@@ -59,7 +60,7 @@ export default function DesktopServices() {
           </div>
 
           {/* Service 2: Telegram Bots & Mini Apps */}
-          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 group flex flex-col justify-between">
+          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                 🤖
@@ -77,7 +78,7 @@ export default function DesktopServices() {
           </div>
 
           {/* Service 3: Casino & Gaming Platforms */}
-          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 group flex flex-col justify-between">
+          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                 🎰
@@ -95,7 +96,7 @@ export default function DesktopServices() {
           </div>
 
           {/* Service 4: Payment Panels & Gateways */}
-          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 group flex flex-col justify-between">
+          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="w-14 h-14 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                 💳
@@ -113,7 +114,7 @@ export default function DesktopServices() {
           </div>
 
           {/* Service 5: AI Data Operations */}
-          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 group flex flex-col justify-between">
+          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                 ⚡
@@ -131,7 +132,7 @@ export default function DesktopServices() {
           </div>
 
           {/* Service 6: Daily Utility & Health Tools */}
-          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 group flex flex-col justify-between">
+          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                 🛠️
@@ -155,7 +156,7 @@ export default function DesktopServices() {
       <section className="bg-slate-50 border-y border-slate-100 py-20 px-6 text-center">
         <h2 className="text-3xl font-black mb-6 text-slate-900">Ready to build your digital product?</h2>
         <p className="text-slate-500 mb-8 max-w-xl mx-auto">Get in touch to discuss your specific requirements and custom development scope.</p>
-        <Link href="/pricing" className="inline-block px-8 py-4 text-sm font-bold bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">
+        <Link href="/pricing" className="inline-block px-8 py-4 text-sm font-bold bg-blue-600 text-white rounded-full hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30 transition-all">
           View Our Pricing
         </Link>
       </section>

@@ -20,7 +20,7 @@ export default function MobileTeam() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="px-4 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl shadow-md transition-transform active:scale-95 z-50"
+          className="px-4 py-2 bg-slate-900 text-white text-[11px] font-bold rounded-xl shadow-md transition-transform active:scale-95 z-50 cursor-pointer"
         >
           {isOpen ? 'Close ✕' : 'Menu ☰'}
         </button>
@@ -54,6 +54,15 @@ export default function MobileTeam() {
                 </Link>
 
                 <Link
+                  href="/catalogue"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-slate-100"
+                >
+                  <span>🛍️ Catalogue</span>
+                  <span className="text-blue-500">&rarr;</span>
+                </Link>
+
+                <Link
                   href="/team"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-between py-3.5 border-b border-slate-800 text-base font-bold text-blue-400"
@@ -76,7 +85,7 @@ export default function MobileTeam() {
             <Link
               href="/#contact"
               onClick={() => setIsOpen(false)}
-              className="w-full text-center py-4 text-xs font-bold uppercase tracking-wider bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-600/30"
+              className="w-full text-center py-4 text-xs font-bold uppercase tracking-wider bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-600/30 cursor-pointer"
             >
               Let's Talk
             </Link>
